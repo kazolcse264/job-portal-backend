@@ -1,9 +1,9 @@
-package com.example.job_project.job.service;
+package com.example.job_project.feature.job.service;
 
 import com.example.job_project.exceptions.ResourceNotFoundException;
 import com.example.job_project.exceptions.ServiceException;
-import com.example.job_project.job.model.Job;
-import com.example.job_project.job.repository.JobRepository;
+import com.example.job_project.feature.job.model.Job;
+import com.example.job_project.feature.job.repository.JobRepository;
 
 import java.util.List;
 

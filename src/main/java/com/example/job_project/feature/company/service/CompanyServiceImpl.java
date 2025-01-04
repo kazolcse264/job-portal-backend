@@ -1,7 +1,7 @@
-package com.example.job_project.company.service;
+package com.example.job_project.feature.company.service;
 
-import com.example.job_project.company.model.Company;
-import com.example.job_project.company.repository.CompanyRepositoy;
+import com.example.job_project.feature.company.model.Company;
+import com.example.job_project.feature.company.repository.CompanyRepositoy;
 import com.example.job_project.exceptions.ResourceNotFoundException;
 import com.example.job_project.exceptions.ServiceException;
 import org.springframework.stereotype.Service;
@@ -79,6 +79,18 @@ public class CompanyServiceImpl implements CompanyService {
             if (!companyRepositoy.existsById(id)) {
                 throw new ResourceNotFoundException("Company not found with ID: " + id);
             }
+            Company company = companyRepositoy.findById(id)
+                    .orElseThrow(() -> new ResourceNotFoundException("Company not found"));
+
+            // Detach or delete associated entities
+            company.getJobs().forEach(job -> job.setCompany(null));
+            company.getReviews().forEach(review -> review.setCompany(null));
+
+            // Save changes (if necessary)
+            companyRepositoy.save(company);
+
+            // Delete the company
+            companyRepositoy.delete(company);
             companyRepositoy.deleteById(id);
             return true;
         } catch (Exception e) {

@@ -1,6 +1,6 @@
-package com.example.job_project.job.model;
+package com.example.job_project.feature.job.model;
 
-import com.example.job_project.company.model.Company;
+import com.example.job_project.feature.company.model.Company;
 import jakarta.persistence.*;
 
 @Entity

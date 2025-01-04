@@ -1,7 +1,7 @@
-package com.example.job_project.job.controller;
+package com.example.job_project.feature.job.controller;
 
-import com.example.job_project.job.model.Job;
-import com.example.job_project.job.service.JobServiceImpl;
+import com.example.job_project.feature.job.model.Job;
+import com.example.job_project.feature.job.service.JobServiceImpl;
 import com.example.job_project.wrappers.ApiResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -63,7 +63,7 @@ public class JobController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
                     .body(new ApiResponse<>(false, "Job not found"));
         }
-        return ResponseEntity.status(HttpStatus.NO_CONTENT)
+        return ResponseEntity.status(HttpStatus.OK)
                 .body(new ApiResponse<>(true, "Job deleted successfully"));
     }
 }
