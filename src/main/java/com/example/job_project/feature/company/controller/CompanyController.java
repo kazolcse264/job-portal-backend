@@ -1,7 +1,7 @@
-package com.example.job_project.company.controller;
+package com.example.job_project.feature.company.controller;
 
-import com.example.job_project.company.model.Company;
-import com.example.job_project.company.service.CompanyServiceImpl;
+import com.example.job_project.feature.company.model.Company;
+import com.example.job_project.feature.company.service.CompanyServiceImpl;
 import com.example.job_project.wrappers.ApiResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -63,7 +63,7 @@ public class CompanyController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
                     .body(new ApiResponse<>(false, "Company not found"));
         }
-        return ResponseEntity.status(HttpStatus.NO_CONTENT)
+        return ResponseEntity.status(HttpStatus.OK)
                 .body(new ApiResponse<>(true, "Company deleted successfully"));
     }
 }

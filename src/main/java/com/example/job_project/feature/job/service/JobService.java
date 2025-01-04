@@ -1,6 +1,6 @@
-package com.example.job_project.job.service;
+package com.example.job_project.feature.job.service;
 
-import com.example.job_project.job.model.Job;
+import com.example.job_project.feature.job.model.Job;
 
 import java.util.List;
 
